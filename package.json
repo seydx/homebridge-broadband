@@ -1,0 +1,36 @@
+{
+  "name": "homebridge-broadband",
+  "version": "1.0.0",
+  "description": "homebridge-broadband",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeydX/homebridge-broadband.git"
+  },
+  "author": "SeydX (https://github.com/SeydX/homebridge-broadband)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SeydX/homebridge-broadband/issues"
+  },
+  "homepage": "https://github.com/SeydX/homebridge-broadband#readme",
+  "keywords": [
+    "broadband",
+    "speed",
+    "homebridge",
+    "homebridge-plugin",
+    "plugin"
+  ],
+  "engines": {
+    "node": ">=0.12.0",
+    "homebridge": ">=0.2.0"
+  },
+  "dependencies": {
+    "speedtest-net": "1.4.2",
+    "fakegato-history": "^0.4.3",
+    "moment": "^2.21.0"
+  }
+}
