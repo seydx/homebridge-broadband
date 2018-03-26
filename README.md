@@ -1,6 +1,9 @@
 # homebridge-broadband v1
 Homebridge Plugin for Broadband speed measurement as Temperature sensor
 
+[![npm](https://img.shields.io/npm/v/homebridge-broadband.svg?style=flat-square)](https://www.npmjs.com/package/homebridge-broadband)
+[![npm](https://img.shields.io/npm/dt/homebridge-broadband.svg?style=flat-square)](https://www.npmjs.com/package/homebridge-broadband)
+[![GitHub last commit](https://img.shields.io/github/last-commit/SeydX/homebridge-broadband.svg?style=flat-square)](https://github.com/SeydX/homebridge-broadband)
 
 # Homebridge plugin for checking your broadband speed
 
