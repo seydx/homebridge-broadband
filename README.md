@@ -65,8 +65,8 @@ This plugin have been verified to work with the following apps on iOS 11.2.5:
 
 You can contribute to this homebridge plugin in following ways:
 
-- [Report issues](https://github.com/SeydX/homebridge-sonybravia-platform/issues) and help verify fixes as they are checked in.
-- Review the [source code changes](https://github.com/SeydX/homebridge-sonybravia-platform/pulls).
+- [Report issues](https://github.com/SeydX/homebridge-broadband/issues) and help verify fixes as they are checked in.
+- Review the [source code changes](https://github.com/SeydX/homebridge-broadband/pulls).
 - Contribute bug fixes.
 - Contribute changes to extend the capabilities
 
