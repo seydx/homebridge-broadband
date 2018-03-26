@@ -1,0 +1,16 @@
+{
+ "bridge": {
+   ...
+},
+ "accessories": [
+    {
+      "accessory": "Broadband",
+      "name": "Broadband",
+      "maxTime": 5,
+      "interval": 60
+    }
+],
+ "platforms": [
+   ...
+ ]
+}
