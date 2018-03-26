@@ -9,6 +9,7 @@ Homebridge Plugin for Broadband speed measurement as Temperature sensor
 
 This homebridge plugin exposes a new temperature sensor to HomeKit to see your broadband speed at home. It also has new characteristics to see the download- and upload speed, also your ping within i.e. Elgato EVE app. It also supports Fakegato.
 
+See [Images](https://github.com/SeydX/homebridge-broadband/tree/master/images/) for more details.
 
 # Installation instructions
 
@@ -45,6 +46,7 @@ After [Homebridge](https://github.com/nfarina/homebridge) has been installed:
 | maxTime | No | The maximum length of a single test run in seconds (Default: 5s) |
 | interval | No | Interval for checing the broadband in mins (Default: 60min) |
 
+See [Example Config](https://github.com/SeydX/homebridge-broadband/blob/master/example-config.json) for more details.
 
 ## Supported clients
 
