@@ -15,7 +15,7 @@ See [Images](https://github.com/SeydX/homebridge-broadband/tree/master/images/) 
 
 After [Homebridge](https://github.com/nfarina/homebridge) has been installed:
 
- ```sudo npm install -g homebridge-broadband```
+ ```sudo npm install -g homebridge-broadband@latest --unsafe-perm```
  
  
  ## Example config.json:
