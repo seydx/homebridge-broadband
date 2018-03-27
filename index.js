@@ -128,6 +128,7 @@ Broadband.prototype = {
         });
 
         this.getData();
+        this.getHistory();
 
         return [this.informationService, this.Sensor, this.historyService];
 
@@ -148,13 +149,6 @@ Broadband.prototype = {
                 self.log("Download: " + self.dlspeed + " Mbps");
                 self.log("Upload: " + self.ulspeed + " Mbps");
                 self.log("Ping: " + self.ping + " ms");
-
-                self.historyService.addEntry({
-                    time: moment().unix(),
-                    temp: self.dlspeed,
-                    pressure: self.ping,
-                    humidity: self.ulspeed
-                });
 
                 self.Sensor.getCharacteristic(Characteristic.CurrentTemperature).updateValue(self.dlspeed);
                 self.Sensor.getCharacteristic(Characteristic.DownloadSpeed).updateValue(self.dlspeed);
@@ -178,6 +172,21 @@ Broadband.prototype = {
                 }, 60000)
             });
 
+    },
+
+    getHistory: function() {
+        var self = this;
+        if (self.dlspeed != 0 && self.ulspeed != 0 && self.ping != 0) {
+            self.historyService.addEntry({
+                time: moment().unix(),
+                temp: self.dlspeed,
+                pressure: self.ping,
+                humidity: self.ulspeed
+            });
+        }
+        setTimeout(function() {
+                self.getHistory();
+            }, 8 * 60 * 1000) //every 8 mins
     },
 
     identify: function(callback) {
