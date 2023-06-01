@@ -123,45 +123,53 @@ Broadband.prototype = {
 
   },
 
-  getData: function() {
-
+  getData: function () {
     const self = this;
-    self.log('Starting broadband measurement...');
+    self.log("Starting ISP speed test...");
+    try {
+      const test = (async () => await speedTest({ acceptLicense: true }))();
 
-    speedTest({
-      maxTime: self.maxTime
-    })
-      .on('data', data => {
-        self.dlspeed = data.speeds.download;
-        self.ulspeed = data.speeds.upload;
-        self.ping = data.server.ping;
+      test
+        .then((result) => {
 
-        self.log('Download: ' + self.dlspeed + ' Mbps');
-        self.log('Upload: ' + self.ulspeed + ' Mbps');
-        self.log('Ping: ' + self.ping + ' ms');
+          // Set data from speed test results
+          self.ping = Math.round(result.ping.latency);
+          // 125000 bytes in a Megabit
+          self.dlspeed = Math.round((result.download.bandwidth / 125000) * 100) / 100;
+          self.ulspeed = Math.round((result.upload.bandwidth / 125000) * 100) / 100;
 
-        self.Sensor.getCharacteristic(Characteristic.CurrentTemperature).updateValue(self.dlspeed);
-        self.Sensor.getCharacteristic(Characteristic.DownloadSpeed).updateValue(self.dlspeed);
-        self.Sensor.getCharacteristic(Characteristic.UploadSpeed).updateValue(self.ulspeed);
-        self.Sensor.getCharacteristic(Characteristic.Ping).updateValue(self.ping);
-        setTimeout(function() {
-          self.getData();
-        }, self.interval);
-      })
-      .on('error', err => {
-        self.log('An error occured: ' + err + ' - Trying again in 1 min');
-        self.dlspeed = self.dlspeed;
-        self.ulspeed = self.ulspeed;
-        self.ping = self.ping;
-        self.Sensor.getCharacteristic(Characteristic.CurrentTemperature).updateValue(self.dlspeed);
-        self.Sensor.getCharacteristic(Characteristic.DownloadSpeed).updateValue(self.dlspeed);
-        self.Sensor.getCharacteristic(Characteristic.UploadSpeed).updateValue(self.ulspeed);
-        self.Sensor.getCharacteristic(Characteristic.Ping).updateValue(self.ping);
-        setTimeout(function() {
-          self.getData();
-        }, 60000);
-      });
+          // Set sensor vaules from data
+          self.Sensor.getCharacteristic(
+            Characteristic.CurrentTemperature
+          ).updateValue(self.dlspeed);
+          self.Sensor.getCharacteristic(
+            Characteristic.DownloadSpeed
+          ).updateValue(self.dlspeed);
+          self.Sensor.getCharacteristic(Characteristic.UploadSpeed).updateValue(
+            self.ulspeed
+          );
+          self.Sensor.getCharacteristic(Characteristic.Ping).updateValue(
+            self.ping
+          );
 
+          // Log results
+          self.log("Download: " + self.dlspeed + " Mbps");
+          self.log("Upload: " + self.ulspeed + " Mbps");
+          self.log("Ping: " + self.ping + " ms");
+
+          setTimeout(function () {
+            self.getData();
+          }, self.interval);
+        })
+        .catch((err) => {
+          self.log('An error occured: ' + err + ' - Trying again in 1 min');
+          setTimeout(function () {
+            self.getData();
+          }, 60000);
+        });
+    } catch (err) {
+      self.log("A fatal error occured: " + err);
+    }
   },
 
   getHistory: function() {
