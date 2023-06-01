@@ -24,7 +24,6 @@ function Broadband(log, config, api) {
   //BASE
   this.name = config['name'] || 'Broadband';
   this.displayName = config.name;
-  this.maxTime = (config['maxTime'] * 1000) || 5 * 1000;
   this.interval = (config['interval'] * 60 * 1000) || 60 * 60 * 1000;
   !this.dlspeed ? this.dlspeed = 0 : this.dlspeed;
   !this.ulspeed ? this.ulspeed = 0 : this.ulspeed;
