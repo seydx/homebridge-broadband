@@ -29,7 +29,6 @@ After [Homebridge](https://github.com/nfarina/homebridge) has been installed:
     {
       "accessory": "Broadband",
       "name": "Broadband",
-      "maxTime": 5,
       "interval": 60
     }
   ]
