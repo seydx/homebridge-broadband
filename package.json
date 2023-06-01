@@ -1,6 +1,6 @@
 {
   "name": "homebridge-broadband",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "homebridge-broadband",
   "main": "index.js",
   "devDependencies": {},
