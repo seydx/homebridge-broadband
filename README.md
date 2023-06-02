@@ -42,7 +42,6 @@ After [Homebridge](https://github.com/nfarina/homebridge) has been installed:
 |------------|----------|-------|
 | accessory | **Yes** | Must be "Broadband" |
 | name | No | Name for the Accessory (Default: Broadband) |
-| maxTime | No | The maximum length of a single test run in seconds (Default: 5s) |
 | interval | No | Interval for checing the broadband in mins (Default: 60min) |
 
 See [Example Config](https://github.com/SeydX/homebridge-broadband/blob/master/example-config.json) for more details.
