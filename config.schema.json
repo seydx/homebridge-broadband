@@ -1,0 +1,21 @@
+{
+    "pluginAlias": "Broadband",
+    "pluginType": "accessory",
+    "headerDisplay": "Routinely runs Speedtest.net test to your fastest server.",
+    "singular": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string",
+          "default": "Broadband"
+        },
+        "interval": {
+          "title": "Test Frequency (minutes)",
+          "type": "integer",
+          "default": "60"
+        }
+      }
+    }
+  }

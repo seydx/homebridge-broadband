@@ -1,6 +1,6 @@
 {
   "name": "homebridge-broadband",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "homebridge-broadband",
   "main": "index.js",
   "devDependencies": {},
@@ -29,8 +29,8 @@
     "homebridge": ">=0.2.0"
   },
   "dependencies": {
-    "speedtest-net": "^1.4.2",
     "fakegato-history": "^0.5.1",
-    "moment": "^2.22.1"
+    "moment": "^2.22.1",
+    "speedtest-net": "^2.2.0"
   }
 }
